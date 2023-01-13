@@ -1,0 +1,301 @@
+:root {
+  --color-white: white;
+  --color-soft-orange: hsl(35, 77%, 62%);
+  --color-soft-red: hsl(5, 85%, 63%);
+
+  --color-off-white: hsl(36, 100%, 99%);
+  --color-grayish-blue: hsl(233, 8%, 79%);
+  --color-soft-grayish-blue: hsl(236, 8%, 61%);
+  --color-dark-grayish-blue: hsl(236, 13%, 42%);
+  --color-very-dark-blue: hsl(240, 100%, 5%);
+
+  --color-cover: rgba(0, 0, 0, 0.45);
+
+  --header-height: 150px;
+  --footer-height: 16px;
+
+  --page-padding: 150px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-off-white);
+}
+.cover {
+  display: none;
+}
+
+header {
+  background-color: transparent;
+
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  display: none;
+}
+header .logo {
+  padding-left: var(--page-padding);
+}
+header .menu {
+  padding-right: var(--page-padding);
+  display: flex;
+}
+header .menu-el {
+  padding: 20px;
+  color: var(--color-dark-grayish-blue);
+}
+header .menu-el:nth-child(5) {
+  padding-right: 0;
+}
+header .menu-el:hover {
+  cursor: pointer;
+  color: var(--color-soft-orange);
+}
+header .hamburger,
+header .hamburger-opener {
+  display: none;
+}
+
+main {
+  width: 100%;
+  height: calc(100vh - (var(--header-height) - var(--footer-height)));
+  background-color: var(--color-off-white);
+
+  display: grid;
+
+  grid-template-areas:
+    "r l"
+    "b b";
+
+  grid-gap: 30px;
+
+  padding: 0px var(--page-padding);
+}
+
+.main-right {
+  grid-area: r;
+  max-width: 900px;
+  max-height: 450px;
+  display: grid;
+  grid-template-areas:
+    "i i i i i"
+    "h h p p p"
+    "h h b b b";
+}
+.main-right picture {
+  grid-area: i;
+}
+.main-right picture img {
+  height: auto;
+  width: 100%;
+}
+.main-right h2 {
+  grid-area: h;
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 45px;
+
+  padding-right: 20px;
+}
+.main-right p {
+  grid-area: p;
+  font-size: 15px;
+  color: var(--color-dark-grayish-blue);
+  padding-top: 10px;
+}
+.main-right button {
+  grid-area: b;
+
+  width: 150px;
+  height: 40px;
+
+  cursor: pointer;
+  border: none;
+  color: var(--color-off-white);
+  font-weight: 400;
+  letter-spacing: 2px;
+  background-color: var(--color-soft-red);
+
+  transition: background-color 0.3s;
+}
+.main-right button:hover {
+  background-color: var(--color-very-dark-blue);
+}
+
+.main-left {
+  grid-area: l;
+  max-height: 450px;
+  background-color: var(--color-very-dark-blue);
+  color: var(--color-off-white);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  padding: 15px;
+}
+.main-left h3 {
+  color: var(--color-soft-orange);
+  font-size: 30px;
+}
+.main-left h4 {
+  cursor: pointer;
+  font-size: 18px;
+}
+.main-left h4:hover {
+  color: var(--color-soft-orange);
+}
+.main-left p {
+  color: var(--color-soft-grayish-blue);
+  font-size: 15px;
+}
+.main-left .hr {
+  width: 80%;
+  height: 1px;
+  background-color: var(--color-dark-grayish-blue);
+}
+.main-bottom {
+  height: 200px;
+  grid-area: b;
+  display: flex;
+}
+.main-bottom-el {
+  width: 33%;
+  height: 127px;
+  display: grid;
+  grid-template-areas:
+    "i d d d"
+    "i h h h"
+    "i p p p";
+}
+.main-bottom-el img {
+  width: 100px;
+  height: auto;
+  grid-area: i;
+}
+.main-bottom-el div {
+  color: var(--color-grayish-blue);
+  font-size: 30px;
+  font-weight: 800;
+  padding-left: 15px;
+
+  grid-area: d;
+}
+.main-bottom-el h4 {
+  cursor: pointer;
+  font-weight: 800;
+  padding-left: 15px;
+
+  grid-area: h;
+}
+.main-bottom-el h4:hover {
+  color: var(--color-soft-orange);
+}
+.main-bottom-el p {
+  color: var(--color-dark-grayish-blue);
+  font-size: 14px;
+  padding-left: 15px;
+
+  grid-area: p;
+}
+
+@media screen and (max-width: 375px) {
+  .cover {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--color-cover);
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+    height: 150px;
+  }
+
+  header .menu {
+    display: none;
+  }
+  header .hamburger {
+    display: none;
+
+    position: absolute;
+    left: 130px;
+    top: 0;
+
+    background-color: var(--color-off-white);
+
+    width: 250px;
+    height: 100vh;
+  }
+  header .hamburger-opener {
+    display: block;
+    position: absolute;
+
+    right: 30px;
+  }
+  header .hamburger-close-button {
+    position: absolute;
+
+    right: 50px;
+    top: 50px;
+  }
+  header .hamburger-opener button,
+  header .hamburger-close-button {
+    border: none;
+    background-color: transparent;
+  }
+  header .hamburger-opener button img,
+  header .hamburger-close-button img {
+    transform: scale(1.3);
+  }
+  header .logo {
+    padding-left: 30px;
+  }
+
+  main {
+    width: 100%;
+    height: calc(100vh - (var(--header-height) - var(--footer-height)));
+
+    grid-template-areas:
+      "r"
+      "l"
+      "b";
+
+    grid-gap: 30px;
+
+    padding: 0px 30px;
+  }
+  .main-bottom {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    display: none;
+  }
+}
