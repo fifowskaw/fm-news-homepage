@@ -27,6 +27,8 @@
 body {
   width: 100vw;
   height: 100vh;
+  max-width: 1440px;
+  min-height: 660px;
 
   display: flex;
   flex-direction: column;
@@ -225,17 +227,15 @@ main {
     top: 0;
 
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
 
     background-color: var(--color-cover);
   }
-
   header {
     position: relative;
     width: 100%;
     height: 150px;
   }
-
   header .menu {
     display: none;
   }
@@ -249,7 +249,16 @@ main {
     background-color: var(--color-off-white);
 
     width: 250px;
-    height: 100vh;
+    height: 110vh;
+
+    padding-top: 150px;
+  }
+  header .menu-el {
+    padding: 10px 20px;
+    color: var(--color-dark-blue);
+
+    font-size: 20px;
+    font-weight: 400;
   }
   header .hamburger-opener {
     display: block;
@@ -277,8 +286,8 @@ main {
   }
 
   main {
-    width: 100%;
-    height: calc(100vh - (var(--header-height) - var(--footer-height)));
+    width: 100vw;
+    /* height: 1500px; */
 
     grid-template-areas:
       "r"
@@ -297,5 +306,37 @@ main {
 
   footer {
     display: none;
+  }
+  .main-right {
+    grid-area: r;
+    max-width: 900px;
+    max-height: 850px;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-right h2 {
+    font-size: 40px;
+  }
+  .main-right p {
+    font-size: 13px;
+    color: var(--color-dark-grayish-blue);
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+
+  .main-left {
+    height: 450px;
+  }
+
+  .main-bottom {
+    height: 200px;
+    display: flex;
+  }
+  .main-bottom-el {
+    margin-bottom: 20px;
+  }
+
+  .main-bottom-el div {
+    width: 200px;
   }
 }
